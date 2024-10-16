@@ -8,3 +8,5 @@
 In this repository, I will take notes on techniques that are used for real-life projects or some helpful and useful commands for DevOps and automation.
 
 ## Structure
+
+* [AWS](/AWS)
