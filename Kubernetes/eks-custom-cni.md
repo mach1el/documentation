@@ -2,7 +2,7 @@
 
 With reference to this [AWS document](https://docs.aws.amazon.com/eks/latest/userguide/cni-custom-network.html), we can setup CNI custom networking to avoid IP address exhaustion in the EKS cluster. Overview basic EKS setup
 
-![ESK basic setup](/resources/images/kubernetes/eks/eks_basic.png)
+![ESK basic setup](/resources/images/Kubernetes/eks/eks_basic.png)
 
 * By default, the Kubernetes CNI provides each pod with an IP address from within the cluster's private IP CIDR block, without impacting the host network.
 * However, in EKS, the default AWS VPC CNI assigns each pod an IP address from the same subnets used to launch the cluster. This can become a critical issue if the pre-configured CIDR block lacks enough IP addresses for pods or other resources.
@@ -12,21 +12,21 @@ With reference to this [AWS document](https://docs.aws.amazon.com/eks/latest/use
 
 By extend a secondary CIDR block of the VPC and combine CNI custom networking we could avoid this issue
 
-![eks_custom_net](/resources/images/kubernetes/eks/eks_custom_net.png)
+![eks_custom_net](/resources/images/Kubernetes/eks/eks_custom_net.png)
 
 - Access to VPC service on AWS console
 - Edit and add new CIDR block
 
 > **Note**: We should use 100.64.0.0/10 and 198.19.0.0/16 CIDR block for pod, these CIDR block are non-routable.*
 
-![edit_vpc1](/resources/images/kubernetes/eks/edit_vpc1.png)
-![edit_vpc2](/resources/images/kubernetes/eks/edit_vpc2.png)
+![edit_vpc1](/resources/images/Kubernetes/eks/edit_vpc1.png)
+![edit_vpc2](/resources/images/Kubernetes/eks/edit_vpc2.png)
 
 - Create new subnet on the VPC
 
-![create_subnet_1](/resources/images/kubernetes/eks/create_subnet_1.png)
-![create_subnet_2](/resources/images/kubernetes/eks/create_subnet_2.png)
-![create_subnet_3](/resources/images/kubernetes/eks/create_subnet_3.png)
+![create_subnet_1](/resources/images/Kubernetes/eks/create_subnet_1.png)
+![create_subnet_2](/resources/images/Kubernetes/eks/create_subnet_2.png)
+![create_subnet_3](/resources/images/Kubernetes/eks/create_subnet_3.png)
 
 ### Configure kubernetes
 
