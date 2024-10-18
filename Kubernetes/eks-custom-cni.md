@@ -128,8 +128,6 @@ ap-southeast-1b   5m
 ap-southeast-1c   5m
 ```
 
-> This applies to the VOdds product due it has many services and might use many nodes. Every time you upgrade the cluster, you must re-run these steps
-
 ### Automatic configuration with labels AZ - availability-zone-labels
 
 We allow K8s to automatically apply ENIConfig corresponding to worker-node AZ.
