@@ -1,9 +1,6 @@
 # Overview
 
 In this stage, we're going to use CI/CD pipeline to deploy application to the EKS cluster. We are using [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) tool for manage and automate the deployment of applications and infrastructure changes to Kubernetes clusters using Git as the source of truth. We dive step by step to setup the ArgoCD and explore its usage
- 
-![cicd-overview](/resources/images/ArgoCD/gitlab-cicd-k8s.drawio.png)
-
 ---
 
 # Setup 
