@@ -1,6 +1,6 @@
 # Setup Ingress Nginx for EKS cluster
 
-![ingress-nginx-routes](/resources/images/Kubernetes/eks/ingress-nginx-routes.png)
+![ingress-nginx-routes](/resources/images/Nginx/ingress-nginx-routes.png)
 
 In this content, we will setup ingress NGINX inside the cluster, which is used to publicly access our applications.Let's move on to Rancher Home and expose a cluster on which we want to deploy INGRESS-NGINX, then start `kubectl shell` at the top right of the page.
 
@@ -156,7 +156,7 @@ cert-manager-cainjector-56c499cdb8-ps7jz   1/1     Running   0          3h36m
 cert-manager-webhook-5585dcddb-trnjx       1/1     Running   0          3h36m
 ```
 
-![cert-manager-overview](/resources/images/Kubernetes/eks/cert-manager-overview.svg)
+![cert-manager-overview](/resources/images/Nginx/cert-manager-overview.svg)
 
 ### Create ClusterIssuer
 
