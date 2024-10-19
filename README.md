@@ -1,5 +1,6 @@
 # Documentation
 
+![ArgoCD](https://img.shields.io/badge/ArgoCD-FF8800?style=for-the-badge&logo=argo&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
 ![GitLab CI](https://img.shields.io/badge/gitlab%20ci-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
@@ -11,6 +12,7 @@ In this repository, I will take notes on techniques that are used for real-life 
 
 ## Structure
 
+* [ArgoCD](/ArgoCD)
 * [AWS](/AWS)
 * [Gitlab](/Gitlab)
 * [Kubernetes](/Kubernetes)
