@@ -61,10 +61,9 @@ sudo apt install gitlab-ce=17.3.4-ce.0
 sudo dnf install -y gitlab-ce=17.3.4-ce.0
 ```
 
-
 When the installation is complete, you will see the results as below.
 
-![gitlab-installed.png](/ops/assets/images/gitlab-Installed.png){:class="img-responsive"}
+![gitlab-installed.png](/ops/assets/images/gitlab-Installed.png)
 
 **Step 5**: Config gitlab
 
@@ -138,29 +137,30 @@ sudo systemctl enable nginx
 
 ### Config
 
-**Step 1**: Add the ssl cert to allow https. 
+#### Step 1: Add the ssl cert to allow https. 
 
 Let's assume we already have the cert file with the name as `fullchain.pem` and the  key for cert as `privkey.pem`. 
 
 - Create a folder in `/etc/nginx/ssl`
 
-    ```bash
-    mkdir /etc/nginx/ssl
-    ```
+  ```bash
+  mkdir /etc/nginx/ssl
+  ```
+
 - Move these two cert and key file to the created folder
 
-    ```bash
-    mv fullchain.pem privkey.pem /etc/nginx/ssl
-    ```
+  ```bash
+  mv fullchain.pem privkey.pem /etc/nginx/ssl
+  ```
 
-**Step 2**: Narrow to the nginx config folder and create new config file
+#### Step 2: Narrow to the nginx config folder and create new config file
 
 ```bash
 cd /etc/nginx/conf.d
 vi gitlab.conf
 ```
 
-**Step 3**: Update the config file with content as below
+#### Step 3: Update the config file with content as below
 
 ```conf
 server {
@@ -203,7 +203,7 @@ server {
 }
 ```
 
-**Step 4**: Enable the config
+#### Step 4: Enable the config
 
 ```bash
 sudo nginx -s reload
@@ -216,12 +216,8 @@ Then we can navigate to the url https://git.mydomain.com
 ## Addtion understand knowledge 
 
 For the new gitlab version, it's already embed nginx inside the configuration to forward the gitlab webservice. But in this document we will use the external nginx, because:
+
 - It's easier to control
 - Other services hosted in the same server can use this nginx
 
 However, we must use the origin nginx, which is embeded in gitlab bundle to forward the webserver first. Then we can able to forward an nginx to this. See diagram below
-
-<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#000000&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2021-01-07T04:44:13.970Z\&quot; agent=\&quot;5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36\&quot; etag=\&quot;_v4ydK8hF--CLly2Wx1Y\&quot; version=\&quot;14.1.8\&quot; type=\&quot;google\&quot;&gt;&lt;diagram name=\&quot;Gitlab Access Architecture\&quot; id=\&quot;lkwyFTzviJoo9ixFbtc8\&quot;&gt;3Vldc9o6EP01PIaxLcvgRyAknU57JzO5d9I+ClvYam2L2iJAf/1dYcnfFEhwYJqHRFrJG3nPniOtPECzePuYklX4lfs0GliGvx2g+4FlubYDv6VhlxswsnNDkDI/N5ml4Zn9pspoKOua+TSrTRScR4Kt6kaPJwn1RM1G0pRv6tOWPKr/1xUJaMvw7JGobX1hvghz6xgbpf0TZUGo/7NpqJGY6MnKkIXE55uKCc0HaJZyLvJWvJ3RSMZOx2Uy/8Sd3eOv777jTrxX7/PDC7nLnT2c80jxCilNxGVd28r3K4nWKmDqZcVORzDl68Sn0osxQNNNyAR9XhFPjm4gZcAWijiCngnNJU+ESgIXuso7TQXdNvA48jJmEWHITMpjKtIdPKe8FOmlstJ0VX9TYowcZQsr+FoaXqLyKih8l7GDhgrfOaG0LhxKn2Thfq7ZZyDteiCLwFYCaeGOQJpOb4FExwNJfSC56vJUhDzgCYnmpXVaD3U55wvnKxXTH1SInUpWsha8Hv5MkFRMpAKBIeEJ1bYHJt9n75YmfmMGWCrj+brlYt+AGbwwX6ce/VOolBbDsgL6J4e5irezIKUREey1vrzLI2q3EH1kIiKLgeVEsOzpIoVWIFtPoMfZOyUI4j/jEU/3zyLPp4vxYg9eyn/SyghykIv8PsnlNMhlt8nldnAL90Yt/NdQC3BJd9+Uw33nuxwZYt2931Zn3u8+ipLOqZQcXZWSzsmUTAKWbC9KyaW7HMlHr0BJ2zhOSbtruzN74+ToZCReePoz5Bm9LBhLz3Pdm9BHZFxbH8cHsYACJV6BECWivT1BWERT4aqxVAJWDbwykYgFCXQ98EvBPpVBZlC9TNRAzHx/L7pdoNZh/5DzIjKtIT56YjStzqN3X6i519jE6JaJb3qLgXZl+4FeufvIjt583rppnblhehHJMubV9syDxVl/WyHW9f5tn061mlRI/+/sCQxjY2x2ZtYXsqBRPRtOJ3JKM/abLPb+JG4rzqSmgHM8HeD7M2podWWifA0Kgh0FMCfMQY7fGUPLdq06y/PeyYgo50/y5SqenaFp1vzemVbdCV8uM0iWJqjFKt+Bc/uu45+LH23o/ucquyk2G8JsF1J97HBj4L64dcKlyO0VHIf081ZrDnzqNQA+kEHvpLWDG4dqt7HV5wtTT/XA7PaNkVZw8GfrC6W/TMVzbh2UA2MIkuNeRLbBl+V+mEy3L4v+y2jaPnVnIVnJ5jqOJp7gVbj20D7xjAnGJWwLLgSPO/AUvCHnfC0iloBu668RRo+K7aAGb5y2XqMOve7t6hV33Q/lVahM51r8nV9rrgfusn2iTyTlVttyTBeu85n0eldUtNoOf0ksEUgWmfyD7aGJIdlMNHRHeja8SfUBbcsXpM03WZFd6WMIGp1WRvdWkOH25VILoU6iFSWs8XYytwCsJoGSjHgbyI+dQ7LJ0JB6Vvsc94DH8ksnmsJEn4GrZuZ8DLS48XnGdEctaDtrbXQ2tNAtv2XmYl5+EEbz/wE=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
-<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
-
-> More information, read [Gitlab architecture](https://docs.gitlab.com/ee/development/architecture.html){:class="img-responsive"}

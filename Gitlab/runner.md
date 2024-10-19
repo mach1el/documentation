@@ -112,7 +112,7 @@ For a CI/CD job which is specified a tag `docker` or `shell`, the runner of that
 >
 >For this documentation, we just focusing on setup the runner to be able to run in a native terminal (aka shell) and docker only.
 >
-> For other Runner execution types, please read [Runner Executors](https://docs.gitlab.com/runner/executors/README.html)
+> For other Runner execution types, please read [Runner Executors](https://docs.gitlab.com/runner/executors)
 
 
 #### Step 1: Get runner register token in Gitlab
@@ -120,7 +120,7 @@ For a CI/CD job which is specified a tag `docker` or `shell`, the runner of that
 - Go to Web UI of gitlab server (https://git.mydomain.com).
 - Navigate to `Admin Area` -> `Overview` -> `Runners` and we will see the tab with information to register the new runner to Gitlab as images below
 
-![runner-token](/resources/images/Gitlab/runner-token.png){:class="img-responsive"}
+![runner-token](/resources/images/Gitlab/runner-token.png)
 
 >**Note**: Remember to save domain and register token
 
@@ -155,7 +155,7 @@ gitlab-runner register \
 ```
 
 When success, we will see the list runner as image below 
-![runner-demo](/resources/images/Gitlab/runner-demo.png){:class="img-responsive"}
+![runner-demo](/resources/images/Gitlab/runner-demo.png)
 
 Example register runner which `docker` executor:
 
@@ -187,7 +187,7 @@ enabled=true
   + `extra_hosts`: Custom hostname
   + `pull_policy`: Define when to fetch docker runner
 
-1. **Runner Shell**
+##### Runner Shell
 
 ```bash
 vi /etc/gitlab-runner/config.toml
@@ -204,13 +204,13 @@ session_timeout=1800
 [[runners]]
 name="runner-shell"
 url="https://git.mydomain.com"
-token="<the runner token>"
+token="<the-runner-token>"
 executor="shell"
 [runners.custom_build_dir]
   enabled=true
 ```
 
-2. **Runner Docker**
+#### Runner Docker
 
 ```bash
 vi /etc/gitlab-runner/config.toml
@@ -227,7 +227,7 @@ session_timeout = 1800
 [[runners]]
   name = "runner-docker"
   url = "https://git.mydomain.com"
-  token = "<the runner token>"
+  token = "<the-runner-token>"
   executor = "docker"
   [runners.custom_build_dir]
     enabled = true
